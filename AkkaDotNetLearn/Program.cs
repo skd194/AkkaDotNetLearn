@@ -1,41 +1,21 @@
-﻿using System;
-using Akka.Actor;
+﻿using Akka.Actor;
 
 namespace AkkaDotNetLearn
 {
     internal class Program
     {
-        private static void Main(string[] args)
+        private static async Task Main(string[] args)
         {
-            // Create the actor system
-            using var system = ActorSystem.Create("MyActorSystem");
+            var system = ActorSystem.Create("MyActorSystem");
 
-            // Create an EchoActor
-            var echo = system.ActorOf(Props.Create(() => new EchoActor()), "echo");
+            var echo = await system
+                .RunEchoActorAsync();
 
-            // Send messages
-            echo.Tell("Hello Akka.NET");
-            echo.Tell("This is a sample application");
+            // request graceful shutdown
+            bool success = await echo.GracefulStop(TimeSpan.FromSeconds(3));
+            Console.WriteLine($"Actor stopped = {success}");
 
-            // Wait for user input before shutting down
-            Console.WriteLine("Press Enter to exit...");
-            Console.ReadLine();
-
-            // Terminate the actor system
-            system.Terminate().Wait();
-        }
-    }
-
-    // A simple actor that echoes received messages to the console
-    public class EchoActor : ReceiveActor
-    {
-        public EchoActor()
-        {
-            Receive<string>(message =>
-            {
-                Console.WriteLine($"EchoActor received: {message}");
-                Sender.Tell($"Echo: {message}");
-            });
+            await system.Terminate();
         }
     }
 }
