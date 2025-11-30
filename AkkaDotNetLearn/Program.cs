@@ -12,7 +12,7 @@ namespace AkkaDotNetLearn
                 .RunEchoActorAsync();
 
             // request graceful shutdown
-            bool success = await echo.GracefulStop(TimeSpan.FromSeconds(3));
+            bool success = await echo.GracefulStop(TimeSpan.FromSeconds(30));
             Console.WriteLine($"Actor stopped = {success}");
 
             await system.Terminate();
