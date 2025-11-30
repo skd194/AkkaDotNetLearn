@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "AkkaDotNetLearn": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
