@@ -20,5 +20,15 @@ namespace AkkaDotNetLearn
 
             return echo;
         }
+
+        public static async Task<IActorRef> RunIotSupervisorAsync(this ActorSystem system)
+        {
+            var supervisor = system.ActorOf(Props.Create(() => new IotSupervisor()), "iot-supervisor-actor");
+
+            Console.WriteLine("Press Enter to exit...");
+            Console.ReadLine();
+
+            return supervisor;
+        }
     }
 }

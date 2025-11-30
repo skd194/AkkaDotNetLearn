@@ -8,12 +8,12 @@ namespace AkkaDotNetLearn
         {
             var system = ActorSystem.Create("MyActorSystem");
 
-            var echo = await system
-                .RunEchoActorAsync();
+            var echo = await system.RunEchoActorAsync();
+            var supervisor = await system.RunIotSupervisorAsync();
 
             // request graceful shutdown
-            bool success = await echo.GracefulStop(TimeSpan.FromSeconds(30));
-            Console.WriteLine($"Actor stopped = {success}");
+            await echo.GracefulStop(TimeSpan.FromSeconds(30));
+            await supervisor.GracefulStop(TimeSpan.FromSeconds(30));
 
             await system.Terminate();
         }
