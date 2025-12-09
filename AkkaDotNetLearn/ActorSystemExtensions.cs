@@ -7,18 +7,18 @@ namespace AkkaDotNetLearn
     {
         public static async Task<IActorRef> RunEchoActorAsync(this ActorSystem system)
         {
-            var echo = system.ActorOf(Props.Create(() => new EchoActor()), "echo");
+            var echoActorRef = system.ActorOf(Props.Create(() => new EchoActor()), "echo");
 
-            echo.Tell("Hello Akka.NET");
-            echo.Tell("This is a sample application");
+            echoActorRef.Tell("Hello Akka.NET");
+            echoActorRef.Tell("This is a sample application");
 
-            var responseMessage = await echo.Ask<string>("Hello");
+            var responseMessage = await echoActorRef.Ask<string>("Hello");
             Console.WriteLine(responseMessage);
 
             Console.WriteLine("Press Enter to exit...");
             Console.ReadLine();
 
-            return echo;
+            return echoActorRef;
         }
 
         public static async Task<IActorRef> RunIotSupervisorAsync(this ActorSystem system)
