@@ -9,11 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Akka" Version="1.5.56" />
+    <PackageReference Include="Akka.Hosting" Version="1.5.55.1" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.22.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Akka.Messages\Akka.Messages.csproj" />
+    <ProjectReference Include="..\AkkaDotNetLearn\AkkaDotNetLearn.csproj" />
     <ProjectReference Include="..\EFCore.Repository\EFCore.Repository.csproj" />
   </ItemGroup>
 

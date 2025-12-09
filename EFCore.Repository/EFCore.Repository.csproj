@@ -35,4 +35,10 @@
     <Folder Include="db\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="db\app.db">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

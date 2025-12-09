@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scheduler.Akka", "Scheduler
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFCore.Repository", "EFCore.Repository\EFCore.Repository.csproj", "{93F63DBA-3263-4241-AEC6-325D68DBEF99}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Akka.Messages", "Akka.Messages\Akka.Messages.csproj", "{2A6F4A2E-4EFD-47CF-92F1-01318862E1D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{93F63DBA-3263-4241-AEC6-325D68DBEF99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93F63DBA-3263-4241-AEC6-325D68DBEF99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93F63DBA-3263-4241-AEC6-325D68DBEF99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A6F4A2E-4EFD-47CF-92F1-01318862E1D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A6F4A2E-4EFD-47CF-92F1-01318862E1D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A6F4A2E-4EFD-47CF-92F1-01318862E1D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A6F4A2E-4EFD-47CF-92F1-01318862E1D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -10,7 +10,7 @@ namespace AkkaDotNetLearn.Actors
             Receive<string>(message =>
             {
                 Console.WriteLine($"EchoActor received: {message}");
-                if (Sender != ActorRefs.NoSender && Sender.Path.Name != "deadLetters")
+                if (!Sender.Equals(ActorRefs.NoSender) && Sender.Path.Name != "deadLetters")
                 {
                     Sender.Tell($"Echo: {message}");
                 }
